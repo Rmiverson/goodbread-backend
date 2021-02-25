@@ -27,4 +27,4 @@
 /config/master.key
 
 # Ignore db config to hide sensitive info
-/config/database.yml
+config/database.yml
