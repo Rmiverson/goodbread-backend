@@ -9,9 +9,12 @@ class UserSerializer < ActiveModel::Serializer
     options = {
       include: {
         posts: {
-          only: [:id]
+          only: [:id, :title, :content]
         },
-        followed: {
+        comments: {
+          only: [:id, :content]
+        },
+        followees: {
           only: [:id, :username]
         },
         followers: {

@@ -1,8 +1,8 @@
-class PostSerializer < ActiveModel::Serializer
+class CommentSerializer < ActiveModel::Serializer
   attributes :id
 
-  def initialize (post)
-    @post = post
+  def initialize (comment)
+    @comment = comment
   end
 
   def serialized_json
@@ -11,16 +11,16 @@ class PostSerializer < ActiveModel::Serializer
         user: {
           only: [:id, :username]
         },
-        comments: {
-          only: [:id, :user_id, :content]
+        post: {
+          only: [:id, :content]
         },
-        post_likes: {
+        comment_likes: {
           only: [:id, :user_id]
         }
       },
       except: [:created_at, :updated_at]
     }
 
-    @post.to_json(options)
+    @comment.to_json(options)
   end
 end
