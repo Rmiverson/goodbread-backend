@@ -13,8 +13,12 @@
 u1 = User.create(username: "rmiverson", password_digest: "1234")
 u2 = User.create(username: "lol", password_digest: "1234")
 
-p1 = Post.create(user_id: 1)
+p1 = Post.create(user_id: 1, title: "Coolest Recipe Ever", content: "this is the best recepie ever made. just buy bread.")
 
 l1 = PostLike.create(user_id: 2, post_id: 1)
 
-f1 = Relationship.create(follower_id: 2, followed_id: 1)
+f1 = Relationship.create(follower_id: 2, followee_id: 1)
+
+c1 = Comment.create(user_id: 2, post_id: 1, content: "wow, so cool!")
+
+cl1 = CommentLike.create(user_id: 1, comment_id: 1)
