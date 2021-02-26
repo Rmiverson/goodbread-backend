@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :posts, only: [:index, :show]
   resources :comments, only: [:show]
+
+  post "/login", to: "users#login"
+  get "/auto_login", to: "users#auto_login"
 end
