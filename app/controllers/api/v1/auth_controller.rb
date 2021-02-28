@@ -17,6 +17,6 @@ class Api::V1::AuthController < ApplicationController
    end
 
    def show
-      render json: {id: user.id, username: user.username}
+      render json: {id: @user.id, username: @user.username}
    end
 end
