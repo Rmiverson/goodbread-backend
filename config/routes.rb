@@ -13,6 +13,4 @@ Rails.application.routes.draw do
         get '/followposts/:id', to: 'users#showFolloweePosts'
     end
   end
-
-  # get "/auto_login", to: "users#auto_login"
 end
