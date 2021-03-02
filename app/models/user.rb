@@ -14,4 +14,15 @@ class User < ApplicationRecord
 
    has_many :following_users, foreign_key: :followee_id, class_name: "Relationship"
    has_many :followers, through: :following_users
+
+
+   def self.getFolloweePosts(user)
+      postsArr = []
+      user.followees.each do |followee|
+         followee.posts.each do |post|
+            postsArr << post
+         end
+      end
+      return postsArr
+   end
 end
