@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         get '/persist', to: 'auth#show'
         
         get '/followposts/:id', to: 'users#showFolloweePosts'
+        get '/userposts/:id', to: 'users#showUserPosts'
     end
   end
 end

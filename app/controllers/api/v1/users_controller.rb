@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-   skip_before_action :authorized, only: [:create, :show]  #:showFolloweePosts
+   skip_before_action :authorized, only: [:create]  # :show :showFolloweePosts :showUserPosts
 
    # signup
    def create
@@ -31,6 +31,14 @@ class Api::V1::UsersController < ApplicationController
       postsArr = User.getFolloweePosts(user)
 
       render json: FolloweePostsSerializer.new(postsArr).serialized_json
+   end
+
+   def showUserPosts
+      user = User.find(params[:id])
+
+      postsArr = user.posts
+
+      render json: PostSerializer.new(postsArr).serialized_json
    end
 
    private
