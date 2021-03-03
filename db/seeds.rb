@@ -10,8 +10,8 @@
 # Post.destroy_all
 # Comment.destroy_all
 
-u1 = User.create(username: "rmiverson", password_digest: "1234")
-u2 = User.create(username: "lol", password_digest: "1234")
+u1 = User.create(username: "rmiverson", password_digest: "1234", user_desc: "Hello, I like to bake sweets and breads.")
+u2 = User.create(username: "lol", password_digest: "1234", user_desc: "Hello, I like to bake sweets and breads.")
 
 p1 = Post.create(user_id: 1, title: "Coolest Recipe Ever", content: "this is the best recepie ever made. just buy bread.")
 p2 = Post.create(user_id: 1, title: "WOW", content: "CCCCCCOOOOOOOOOLLLLLLLLL.")
