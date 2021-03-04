@@ -9,11 +9,12 @@ Rails.application.routes.draw do
         post '/sign_up', to: 'users#create'
         post "/login", to: "auth#create"
         get '/persist', to: 'auth#show'
-
-        # post '/new', to: 'posts#create'
         
         get '/followposts/:id', to: 'users#showFolloweePosts'
         get '/userposts/:id', to: 'users#showUserPosts'
+
+        post '/relationships', to: 'relationships#create'
+        delete '/relationships', to: 'relationships#destroy'
     end
   end
 end

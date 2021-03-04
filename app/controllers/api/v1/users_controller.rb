@@ -30,7 +30,7 @@ class Api::V1::UsersController < ApplicationController
 
       postsArr = User.getFolloweePosts(user)
 
-      render json: FolloweePostsSerializer.new(postsArr).serialized_json
+      render json: PostSerializer.new(postsArr).serialized_json
    end
 
    def showUserPosts
