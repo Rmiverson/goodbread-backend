@@ -3,12 +3,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
         resources :users, only: [:index, :show, :create]
-        resources :posts, only: [:index, :show]
+        resources :posts, only: [:index, :show, :create]
         resources :comments, only: [:show]
 
         post '/sign_up', to: 'users#create'
         post "/login", to: "auth#create"
         get '/persist', to: 'auth#show'
+
+        # post '/new', to: 'posts#create'
         
         get '/followposts/:id', to: 'users#showFolloweePosts'
         get '/userposts/:id', to: 'users#showUserPosts'
