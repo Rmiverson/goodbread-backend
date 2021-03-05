@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
         post '/relationships', to: 'relationships#create'
         delete '/relationships', to: 'relationships#destroy'
+
+        post '/posts/:id', to: 'posts#update'
+        delete '/posts/:id', to: 'posts#destroy'
     end
   end
 end
