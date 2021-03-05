@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
         resources :users, only: [:index, :show, :create]
         resources :posts, only: [:index, :show, :create]
-        resources :comments, only: [:show]
+        resources :comments, only: [:show, :create]
 
         post '/sign_up', to: 'users#create'
         post "/login", to: "auth#create"
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
         post '/posts/:id', to: 'posts#update'
         delete '/posts/:id', to: 'posts#destroy'
+
+        post '/comments/:id', to: 'comments#update'
+        delete '/comments/:id', to: 'comments#destroy'
     end
   end
 end
