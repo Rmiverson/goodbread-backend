@@ -12,6 +12,8 @@ Rails.application.routes.draw do
         
         get '/followposts/:id', to: 'users#showFolloweePosts'
         get '/userposts/:id', to: 'users#showUserPosts'
+        post '/users/:id', to: 'users#update'
+        delete '/users/:id', to: 'users#destroy'
 
         post '/relationships', to: 'relationships#create'
         delete '/relationships', to: 'relationships#destroy'
