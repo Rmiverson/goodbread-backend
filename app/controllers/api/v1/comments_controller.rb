@@ -15,6 +15,20 @@ class Api::V1::CommentsController < ApplicationController
       render json: CommentSerializer.new(comment).serialized_json
    end
 
+   def update
+      comment = Comment.find(params[:id])
+
+      comment.update(comment_params)
+
+      render json: CommentSerializer.new(comment).serialized_json
+   end
+
+   def destroy
+      comment = Comment.find(params[:id])
+      comment.destroy
+      render json: {}, status: 200
+   end
+
    private
 
    def comment_params

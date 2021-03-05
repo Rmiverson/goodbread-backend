@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
         post '/posts/:id', to: 'posts#update'
         delete '/posts/:id', to: 'posts#destroy'
+
+        post '/comments/:id', to: 'comments#update'
+        delete '/comments/:id', to: 'comments#destroy'
     end
   end
 end
