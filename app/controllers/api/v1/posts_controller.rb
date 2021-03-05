@@ -21,6 +21,20 @@ class Api::V1::PostsController < ApplicationController
       render json: PostSerializer.new(post).serialized_json
    end
 
+   def update
+      post = Post.find(params[:id])
+
+      post.update(post_params)
+
+      render json: PostSerializer.new(post).serialized_json
+   end
+
+   def destroy
+      item = Post.find(params[:id])
+      item.destroy
+      render json: {}, status: 200
+   end
+
    private
    
    def post_params
