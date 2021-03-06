@@ -5,6 +5,7 @@ Rails.application.routes.draw do
         resources :users, only: [:index, :show, :create]
         resources :posts, only: [:index, :show, :create]
         resources :comments, only: [:show, :create]
+        resources :post_likes
 
         post '/sign_up', to: 'users#create'
         post "/login", to: "auth#create"
@@ -23,6 +24,9 @@ Rails.application.routes.draw do
 
         post '/comments/:id', to: 'comments#update'
         delete '/comments/:id', to: 'comments#destroy'
+
+        post '/postlikes', to: 'post_likes#create'
+        delete '/postlikes/:id', to: 'post_likes#destroy'
     end
   end
 end
