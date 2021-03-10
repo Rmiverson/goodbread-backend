@@ -9,7 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins 'https://rmiverson.github.io/goodbread-frontend/' #change when pushing to heroku
 
-    resource '/api/v1/*',
+    resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
