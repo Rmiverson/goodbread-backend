@@ -1,24 +1,34 @@
-# README
+# Good Bread
+### A social media React app for cooking and baking Recipes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
+In this app you can write recipes and post them. You can follow other people and see their recipies. Following people will put their recipes on to your homepage feed. You can like recipes, comment on recipies, and like other peoples comments on recipes. You can also search any recipe by title in the search tab. In the profile tab you can see your own profile as well as all the recipes you've written.
 
-Things you may want to cover:
+This is the API backend for the app, running Ruby on Rails.
 
-* Ruby version
+## Resources used
+* Ruby 3.0.0
+* Ruby on Rails
+* PostgreSQL
+* bycrypt for password security
+* JWT for requiring a login to access api information
+* active_model_serializers
+* Frontend information [here](https://github.com/Rmiverson/goodbread-frontend)
 
-* System dependencies
+## Installing
+### Pre-Requisites
+* Ruby version 3.0.0 or higher
+* latest version of Rails
+* Working installation of PostgreSQL
 
-* Configuration
+### Installing
+* Fork and clone the repository
+* run 'bundle install'
+* setup postgreSQL infor in 'database.yml' if necessary (usually if you're running windows)
+* setup secret passcode in 'app/conrollers/application_conroller.rb' for password encrypting
+* run 'rails db:migrate'
+* run 'rails s'
+* now you're ready to go!
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Contributors
+Devloped and designed by [Riley M. Iverson](https://github.com/Rmiverson)
