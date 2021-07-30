@@ -5,7 +5,7 @@ class UserSerializer < ActiveModel::Serializer
     @user = user
   end
 
-  def serialized_json
+  def serialized_json(token = nil)
     options = {
       include: {
         posts: {
@@ -23,7 +23,9 @@ class UserSerializer < ActiveModel::Serializer
       },
       except: [:password_digest, :created_at, :updated_at]
     }
-
-    @user.to_json(options)
+    data = @user.to_json(options)
+    dataToken = JSON.parse(data)
+    dataToken["token"] = token
+    dataToken
   end
 end
