@@ -1,6 +1,5 @@
 class Api::V1::RelationshipsController < ApplicationController
    def create
-      # byebug
       relationship = Relationship.create(relationshipParams)
 
       if !relationship.valid?
