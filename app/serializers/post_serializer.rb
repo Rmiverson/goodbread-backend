@@ -20,7 +20,7 @@ class PostSerializer < ActiveModel::Serializer
       },
       except: [:created_at, :updated_at]
     }
-
+    
     @post.to_json(options)
   end
 end

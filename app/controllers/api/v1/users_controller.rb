@@ -38,6 +38,7 @@ class Api::V1::UsersController < ApplicationController
 
       postsArr = user.posts
 
+      
       render json: PostSerializer.new(postsArr).serialized_json
    end
 
