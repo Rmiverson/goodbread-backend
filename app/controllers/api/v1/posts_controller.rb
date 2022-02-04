@@ -38,7 +38,7 @@ class Api::V1::PostsController < ApplicationController
    private
    
    def post_params
-      params.require(:post).permit(:user_id, :title, :content)
+      params.require(:post).permit(:user_id, :title, :ingredients => [:name, :amount], :instructions => [], :tags => [], :contents => [:heading, :text])
    end
 
 end

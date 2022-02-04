@@ -74,8 +74,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_020013) do
   create_table "posts", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
-    t.text "introduction"
-    t.text "conclusion"
+    t.string "contents", array: true
     t.string "ingredients", array: true
     t.string "instructions", array: true
     t.string "tags", array: true
