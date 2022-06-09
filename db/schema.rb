@@ -54,46 +54,45 @@ ActiveRecord::Schema.define(version: 2021_02_26_020013) do
 
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
-    t.text "content"
+    t.bigint "recipe_id", null: false
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["recipe_id"], name: "index_comments_on_recipe_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "post_likes", force: :cascade do |t|
+  create_table "recipe_likes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "post_id", null: false
+    t.bigint "recipe_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_post_likes_on_post_id"
-    t.index ["user_id"], name: "index_post_likes_on_user_id"
+    t.index ["recipe_id"], name: "index_recipe_likes_on_recipe_id"
+    t.index ["user_id"], name: "index_recipe_likes_on_user_id"
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "recipes", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "title"
-    t.string "contents", array: true
-    t.string "ingredients", array: true
-    t.string "instructions", array: true
-    t.string "tags", array: true
+    t.string "title", null: false
+    t.string "description", null: false
+    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["user_id"], name: "index_recipe_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followee_id"
+    t.integer "follower_id", null: false
+    t.integer "followee_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
-    t.text "user_desc"
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.text "user_description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -102,9 +101,9 @@ ActiveRecord::Schema.define(version: 2021_02_26_020013) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comment_likes", "comments"
   add_foreign_key "comment_likes", "users"
-  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "recipes"
   add_foreign_key "comments", "users"
-  add_foreign_key "post_likes", "posts"
-  add_foreign_key "post_likes", "users"
-  add_foreign_key "posts", "users"
+  add_foreign_key "recipe_likes", "recipes"
+  add_foreign_key "recipe_likes", "users"
+  add_foreign_key "recipes", "users"
 end

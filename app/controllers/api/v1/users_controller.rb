@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-   skip_before_action :authorized, only: [:create]  # :show :showFolloweePosts :showUserPosts
+   skip_before_action :authorized, only: [:create]
 
    # signup
    def create
@@ -25,21 +25,21 @@ class Api::V1::UsersController < ApplicationController
       render json: UserSerializer.new(user).serialized_json
    end
 
-   def showFolloweePosts
+   def showFolloweeRecipes
       user = User.find(params[:id])
 
-      postsArr = User.getFolloweePosts(user)
+      recipesArr = User.getFolloweeRecipes(user)
 
-      render json: PostSerializer.new(postsArr).serialized_json
+      render json: RecipeSerializer.new(recipesArr).serialized_json
    end
 
-   def showUserPosts
+   def showUserRecipess
       user = User.find(params[:id])
 
-      postsArr = user.posts
+      recipesArr = user.recipes
 
       
-      render json: PostSerializer.new(postsArr).serialized_json
+      render json: RecipeSerializer.new(recipesArr).serialized_json
    end
 
    def update

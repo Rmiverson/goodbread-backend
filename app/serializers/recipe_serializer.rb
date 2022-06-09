@@ -1,8 +1,8 @@
-class PostSerializer < ActiveModel::Serializer
+class RecipeSerializer < ActiveModel::Serializer
   attributes :id
 
-  def initialize (post)
-    @post = post
+  def initialize (recipe)
+    @recipe = recipe
   end
 
   def serialized_json
@@ -14,13 +14,13 @@ class PostSerializer < ActiveModel::Serializer
         comments: {
           only: [:id, :user_id, :content]
         },
-        post_likes: {
+        recipe_likes: {
           only: [:id, :user_id]
         }
       },
       except: [:created_at, :updated_at]
     }
     
-    @post.to_json(options)
+    @recipe.to_json(options)
   end
 end

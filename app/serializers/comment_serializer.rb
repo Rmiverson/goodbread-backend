@@ -11,7 +11,7 @@ class CommentSerializer < ActiveModel::Serializer
         user: {
           only: [:id, :username]
         },
-        post: {
+        recipe: {
           only: [:id, :content]
         },
         comment_likes: {

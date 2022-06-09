@@ -8,7 +8,7 @@ class UserSerializer < ActiveModel::Serializer
   def serialized_json(token = nil)
     options = {
       include: {
-        posts: {
+        recipes: {
           only: [:id, :title, :content]
         },
         comments: {

@@ -1,7 +1,7 @@
-class Api::V1::PostLikesController < ApplicationController
+class Api::V1::RecipeLikesController < ApplicationController
 
    def create
-      like = PostLike.create(post_like_params)
+      like = RecipeLike.create(recipe)
       
       if like.valid?
          render json: {message: "Invalid like request"}
@@ -11,15 +11,15 @@ class Api::V1::PostLikesController < ApplicationController
    end
 
    def destroy
-      like = PostLike.find(params[:id])
+      like = RecipeLike.find(params[:id])
       like.destroy
       render json: {}, status: 200
    end
 
    private
 
-   def post_like_params
-      params.require(:post_like).permit(:user_id, :post_id)
+   def recipe_like_params
+      params.require(:recipe_like).permit(:user_id, :recipe_id)
    end
    
 end
