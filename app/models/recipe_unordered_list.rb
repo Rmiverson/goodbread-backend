@@ -1,0 +1,2 @@
+class RecipeUnorderedList < ApplicationRecord
+end

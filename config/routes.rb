@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :recipe_texts
+  resources :recipe_unordered_lists
+  resources :recipe_ordered_lists
+  resources :recipe_images
+  resources :tags
+  resources :sub_boards
+  resources :boards
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     namespace :v1 do
