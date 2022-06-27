@@ -2,9 +2,9 @@ class User < ApplicationRecord
    has_secure_password
 
    has_many :recipes, :dependent => :delete_all
-   has_many :comments, :dependent => :delete_all
    has_many :recipe_likes, :dependent => :delete_all
-   has_many :comment_likes, :dependent => :delete_all
+   has_many :boards, :dependent => :delete_all
+   has_many :sub_boards, :dependent => :delete_all
 
    has_many :followed_users, foreign_key: :follower_id, class_name: "Relationship"
    has_many :followees, through: :followed_users, :dependent => :delete_all
